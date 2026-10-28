@@ -1,21 +1,13 @@
-# Capri 2D character art slot (v0.4)
+# Capri 2D artwork and animation (v0.5)
 
-The iPhone app currently shows a lightweight built-in animated silhouette. No third-party character art is bundled.
+The public mobile app now bundles an **original generated Capri character illustration** at `base.webp` (380 × 390 px, transparent). This is a fan interpretation of Capri/Capricorn from *Cyberpunk: Edgerunners 2*, not official show artwork, a ripped show frame, or another artist's sprite. The character IP belongs to its respective rights holders.
 
-To replace the silhouette, add a rights-cleared character image as **`base.png`** in this folder. The app automatically switches to it after the image loads. If it is absent or broken, the silhouette remains visible.
+The character stage displays the sprite by default. Idle motion and thinking/talking state transitions are driven by the existing HTML/CSS and voice/chat events. This is currently **one illustrated frame**, not a rigged Live2D model or frame-by-frame speaking animation. Overlay slots remain available for future face-animation assets.
 
-## Optional aligned overlays
+Optional additional assets must use the same 380 × 390 canvas dimensions and visual coordinates:
+- `eyes-closed.png`: transparent aligned eyelids only, for blinking.
+- `mouth-open.png`: transparent aligned mouth only, for speaking.
 
-- `base.png`: transparent full character, with open eyes and resting/closed mouth. REQUIRED for custom artwork.
-- `eyes-closed.png`: transparent *full-canvas* image with only the closed eyelid/eye details placed at their exact original coordinates. Used for blink frames.
-- `mouth-open.png`: transparent *full-canvas* image with only an open mouth at its original coordinates. Shown during speech synthesis.
+If the image is missing, the built-in fallback silhouette is still available, and Gemini connectivity is untouched.
 
-Use the exact same width, height, canvas crop, and coordinate system for all layers. A **600 × 880** or **900 × 1320** portrait canvas is fine if all files match. Keep artwork comfortably inset from the edges.
-
-Images are inserted as full-frame stacked elements with object-fit: contain. The base sprite floats and sways with CSS. Eyes and mouth overlays are synchronized to the same sprite. The effects are simple CSS animations, **not** a Live2D rig or audio-driven viseme analysis.
-
-The character state follows the app: **idle** while resting, **thinking** during Gemini requests, and **talking** while system text-to-speech actually plays. Users with reduced-motion enabled see a static stage.
-
-Only upload art that you're authorized to put in this public GitHub repository. Downloadable fan assets do not automatically include redistribution permission.
-
-After uploading `base.png`, reload the GitHub Pages website. Existing chat history, stored access token and Gemini connection are unaffected.
+For a future different art style, replace `base.webp` with a properly licensed sprite and refresh the web app. Do not copy third-party art into the public repository without rights to publish it.

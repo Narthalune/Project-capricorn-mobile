@@ -200,7 +200,7 @@ main{background:radial-gradient(ellipse at 50% 12%,#11442b32,transparent 62%)}
   </style>
   <style id="capri-character-v04">
 
-/* CAPRICORN / CHARACTER STAGE 0.4 : opt-in PNG layers + animated 2D fallback */
+/* CAPRICORN / CHARACTER STAGE 0.5 : original Capri artwork + animated 2D stage */
 .capri-stage{position:relative;display:flex;align-items:center;justify-content:center;
   width:190px;height:192px;min-height:192px;flex:none;isolation:isolate;overflow:visible}
 .capri-stage-backdrop{position:absolute;z-index:-1;width:151px;height:151px;left:50%;top:13px;transform:translateX(-50%);
@@ -245,6 +245,12 @@ main{background:radial-gradient(ellipse at 50% 12%,#11442b32,transparent 62%)}
 #panel-chat:has(.message.user) .character-title{text-align:left}
 #panel-chat:has(.message.user) .character-title h1{font-size:25px;line-height:27px;letter-spacing:4px}
 #panel-chat:has(.message.user) .mini-metrics{display:none}
+
+/* Character art treatment: deeper silhouette, stronger pink-red emissive rim, quiet floating idle. */
+.capri-stage.art-ready .capri-figure{filter:drop-shadow(0 12px 12px #000b) drop-shadow(-3px 0 8px #ff397c58) drop-shadow(2px 0 8px #65ff7c2e)}
+.capri-stage.art-ready .capri-layer-base{image-rendering:auto}
+.capri-stage.art-ready[data-state="thinking"] .capri-layer-base{filter:brightness(1.04) saturate(1.1)}
+.capri-stage.art-ready[data-state="talking"] .capri-layer-base{filter:brightness(1.1) saturate(1.16)}
 @keyframes capri-breathe{0%,100%{transform:translateY(2px) rotate(-1.3deg) scale(1)}50%{transform:translateY(-5px) rotate(1deg) scale(1.025)}}
 @keyframes capri-thinking{0%,100%{transform:translateY(1px) rotate(-4deg)}50%{transform:translateY(-4px) rotate(4deg)}}
 @keyframes capri-ring{0%{transform:translateX(-50%) rotate(0)}100%{transform:translateX(-50%) rotate(360deg)}}
@@ -271,14 +277,14 @@ main{background:radial-gradient(ellipse at 50% 12%,#11442b32,transparent 62%)}
   <div class="app-shell">
     <header class="topbar">
       <div class="brand-mark" aria-hidden="true">C<span>⌁</span></div>
-      <div class="brand-label"><strong>CAPRI<span class="brand-dot">.</span></strong><small>PROJECT CAPRICORN <span class="tag">MOBILE / CHARACTER 0.4</span></small></div>
+      <div class="brand-label"><strong>CAPRI<span class="brand-dot">.</span></strong><small>PROJECT CAPRICORN <span class="tag">MOBILE / CHARACTER 0.5</span></small></div>
       <button id="status-button" class="status-button" type="button" aria-label="Open connection settings"><i id="status-led"></i><span id="status-label">CHECKING</span></button>
     </header>
 
     <main>
       <section id="panel-chat" class="screen active" aria-label="Chat">
         <div class="character-head">
-          <div class="capri-stage" id="capri-stage" data-state="idle" role="img" aria-label="Animated 2D temporary character silhouette; character artwork not installed.">
+          <div class="capri-stage" id="capri-stage" data-state="idle" role="img" aria-label="Animated Capri character artwork inspired by Cyberpunk: Edgerunners 2.">
             <span class="capri-stage-backdrop" aria-hidden="true"></span>
             <span class="capri-stage-scan" aria-hidden="true"></span>
             <div class="capri-figure" aria-hidden="true">
@@ -310,12 +316,12 @@ main{background:radial-gradient(ellipse at 50% 12%,#11442b32,transparent 62%)}
                 <path d="M43 161 L23 184 M138 161 L157 184" stroke="#5aff96" stroke-width="2" opacity=".45"/>
               </svg>
               <div class="capri-art" id="capri-art" aria-hidden="true">
-                <img id="capri-base" class="capri-layer capri-layer-base" src="./assets/capri/base.png" alt="" decoding="async" draggable="false">
+                <img id="capri-base" class="capri-layer capri-layer-base" src="./assets/capri/base.webp?v=05" alt="" decoding="async" draggable="false">
                 <img id="capri-eyes" class="capri-layer capri-layer-eyes" src="./assets/capri/eyes-closed.png" alt="" decoding="async" draggable="false">
                 <img id="capri-mouth" class="capri-layer capri-layer-mouth" src="./assets/capri/mouth-open.png" alt="" decoding="async" draggable="false">
               </div>
             </div>
-            <div class="capri-stage-label"><span id="capri-motion-label">2D // IDLE</span><small>ART SLOT READY</small></div>
+            <div class="capri-stage-label"><span id="capri-motion-label">2D // IDLE</span><small>CAPRI // LIVE SPRITE</small></div>
           </div>
           <div class="character-title"><span class="overline">NEURAL COMPANION // 01</span><h1>CAPRI</h1><div class="subtitle">"Still here, choom."</div></div>
           <div class="mini-metrics"><span>◈ MEMORY <strong>LOCAL</strong></span><span>◈ VOICE <strong>DEVICE</strong></span></div>
