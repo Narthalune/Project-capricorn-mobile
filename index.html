@@ -198,23 +198,124 @@ main{background:radial-gradient(ellipse at 50% 12%,#11442b32,transparent 62%)}
   .control,.nav-item,.composer button{transition:none!important}}
 
   </style>
+  <style id="capri-character-v04">
+
+/* CAPRICORN / CHARACTER STAGE 0.4 : opt-in PNG layers + animated 2D fallback */
+.capri-stage{position:relative;display:flex;align-items:center;justify-content:center;
+  width:190px;height:192px;min-height:192px;flex:none;isolation:isolate;overflow:visible}
+.capri-stage-backdrop{position:absolute;z-index:-1;width:151px;height:151px;left:50%;top:13px;transform:translateX(-50%);
+  border:1px solid #65ffa44d;border-radius:50%;box-shadow:inset 0 0 29px #62ffa50d,0 0 23px #5cff8a14;
+  background:radial-gradient(circle at center,#42f58e16,transparent 67%);
+  animation:capri-ring 13s linear infinite}
+.capri-stage-backdrop::before,.capri-stage-backdrop::after{content:"";position:absolute;inset:12px;
+  border:1px dashed #ed445a5e;border-radius:50%;transform:rotate(27deg)}
+.capri-stage-backdrop::after{inset:-10px;border-color:#69ffc637;border-left-color:#f54c66;border-style:solid}
+.capri-stage-scan{position:absolute;inset:15px 22px 21px;pointer-events:none;z-index:4;
+  background:linear-gradient(transparent 0%,#83ffae00 40%,#8cffb622 50%,transparent 58%);
+  background-size:100% 75px;animation:capri-stage-scan 6s linear infinite}
+.capri-figure{position:relative;width:151px;height:172px;transform-origin:50% 65%;
+  filter:drop-shadow(0 10px 11px #000b) drop-shadow(0 0 8px #48ef8826);
+  animation:capri-breathe 4.7s ease-in-out infinite;z-index:2}
+.capri-placeholder{display:block;width:100%;height:100%;overflow:visible}
+.capri-open-eyes{animation:capri-eyes-open 5.4s linear infinite}
+.capri-closed-eyes{opacity:0;animation:capri-eyes-closed 5.4s linear infinite}
+.capri-mouth-talking{opacity:0;transform-origin:center}
+.capri-art{display:none;position:absolute;inset:0;pointer-events:none}
+.capri-layer{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain;opacity:0;pointer-events:none}
+.capri-stage.art-ready .capri-placeholder{display:none}
+.capri-stage.art-ready .capri-art{display:block}
+.capri-stage.art-ready .capri-layer-base{opacity:1}
+.capri-stage.art-ready .capri-layer-eyes.layer-ready{animation:capri-overlay-blink 5.4s linear infinite}
+.capri-stage.art-ready[data-state="talking"] .capri-layer-mouth.layer-ready{animation:capri-overlay-talk .27s steps(1,end) infinite}
+.capri-stage[data-state="talking"] .capri-mouth-rest{opacity:0}
+.capri-stage[data-state="talking"] .capri-mouth-talking{animation:capri-mouth-flap .3s ease-in-out infinite}
+.capri-stage[data-state="thinking"] .capri-figure{animation:capri-thinking 2.4s ease-in-out infinite}
+.capri-stage[data-state="thinking"] .capri-stage-backdrop{box-shadow:0 0 24px #fe4e703d,inset 0 0 28px #ff3b5b18}
+.capri-stage[data-state="talking"] .capri-stage-backdrop{box-shadow:0 0 26px #43ff9d69,inset 0 0 16px #32ffa129}
+.capri-stage-label{position:absolute;bottom:0;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:9px;
+  z-index:5;pointer-events:none;text-shadow:0 0 7px #020b06}
+.capri-stage-label span{font:800 9px ui-monospace,monospace;letter-spacing:1.3px;color:#9affbe}
+.capri-stage-label small{font:700 8px ui-monospace,monospace;color:#fa798a;letter-spacing:.6px}
+#panel-chat:has(.message.user) .character-head{min-height:110px}
+#panel-chat:has(.message.user) .capri-stage{width:88px;height:88px;min-height:88px;flex:0 0 88px}
+#panel-chat:has(.message.user) .capri-figure{width:78px;height:89px}
+#panel-chat:has(.message.user) .capri-stage-backdrop{width:84px;height:84px;top:4px}
+#panel-chat:has(.message.user) .capri-stage-scan{inset:0}
+#panel-chat:has(.message.user) .capri-stage-label{display:none}
+#panel-chat:has(.message.user) .character-title{text-align:left}
+#panel-chat:has(.message.user) .character-title h1{font-size:25px;line-height:27px;letter-spacing:4px}
+#panel-chat:has(.message.user) .mini-metrics{display:none}
+@keyframes capri-breathe{0%,100%{transform:translateY(2px) rotate(-1.3deg) scale(1)}50%{transform:translateY(-5px) rotate(1deg) scale(1.025)}}
+@keyframes capri-thinking{0%,100%{transform:translateY(1px) rotate(-4deg)}50%{transform:translateY(-4px) rotate(4deg)}}
+@keyframes capri-ring{0%{transform:translateX(-50%) rotate(0)}100%{transform:translateX(-50%) rotate(360deg)}}
+@keyframes capri-stage-scan{from{background-position:0 -80px}to{background-position:0 185px}}
+@keyframes capri-eyes-open{0%,90%,93%,100%{opacity:1}91%,92%{opacity:0}}
+@keyframes capri-eyes-closed{0%,90%,93%,100%{opacity:0}91%,92%{opacity:1}}
+@keyframes capri-mouth-flap{0%,100%{opacity:0;transform:scaleY(.35)}35%,75%{opacity:1;transform:scaleY(1)}}
+@keyframes capri-overlay-blink{0%,90%,93%,100%{opacity:0}91%,92%{opacity:1}}
+@keyframes capri-overlay-talk{0%,45%,100%{opacity:0}46%,90%{opacity:1}}
+@media (max-height:740px){.capri-stage{height:130px;min-height:130px;width:143px}
+  .capri-figure{width:115px;height:130px}.capri-stage-backdrop{width:112px;height:112px;top:5px}
+  .capri-stage-label small{display:none}}
+@media(prefers-reduced-motion:reduce){.capri-stage-backdrop,.capri-stage-scan,.capri-figure,.capri-open-eyes,.capri-closed-eyes,
+  .capri-stage.art-ready .capri-layer-eyes.layer-ready,.capri-stage.art-ready[data-state="talking"] .capri-layer-mouth.layer-ready,
+  .capri-stage[data-state="thinking"] .capri-figure,.capri-stage[data-state="talking"] .capri-mouth-talking{animation:none!important}
+  .capri-open-eyes{opacity:1!important}.capri-closed-eyes{opacity:0!important}
+  .capri-stage[data-state="talking"] .capri-mouth-talking{opacity:1!important}
+  .capri-stage.art-ready[data-state="talking"] .capri-layer-mouth.layer-ready{opacity:1!important}}
+
+  </style>
   <title>CAPRI // Capricorn Mobile</title>
 </head>
 <body>
   <div class="app-shell">
     <header class="topbar">
       <div class="brand-mark" aria-hidden="true">C<span>⌁</span></div>
-      <div class="brand-label"><strong>CAPRI<span class="brand-dot">.</span></strong><small>PROJECT CAPRICORN <span class="tag">MOBILE / REDLINE 0.3</span></small></div>
+      <div class="brand-label"><strong>CAPRI<span class="brand-dot">.</span></strong><small>PROJECT CAPRICORN <span class="tag">MOBILE / CHARACTER 0.4</span></small></div>
       <button id="status-button" class="status-button" type="button" aria-label="Open connection settings"><i id="status-led"></i><span id="status-label">CHECKING</span></button>
     </header>
 
     <main>
       <section id="panel-chat" class="screen active" aria-label="Chat">
         <div class="character-head">
-          <div class="orb-wrap">
-            <div class="orbit outer"></div><div class="orbit inner"></div><div class="orbit tertiary"></div><div class="core-base" aria-hidden="true"></div><span class="core-coordinate coord-left" aria-hidden="true">HOLO/01</span><span class="core-coordinate coord-right" aria-hidden="true">PRISM/3D</span>
-            <div class="avatar"><div class="avatar-lines"></div><div class="avatar-symbol">C</div></div>
-            <div class="orb-spark spark-a"></div><div class="orb-spark spark-b"></div>
+          <div class="capri-stage" id="capri-stage" data-state="idle" role="img" aria-label="Animated 2D temporary character silhouette; character artwork not installed.">
+            <span class="capri-stage-backdrop" aria-hidden="true"></span>
+            <span class="capri-stage-scan" aria-hidden="true"></span>
+            <div class="capri-figure" aria-hidden="true">
+              <svg class="capri-placeholder" viewBox="0 0 180 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                <defs>
+                  <linearGradient id="capri-body-fill" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2c5741"/><stop offset=".55" stop-color="#0b2018"/><stop offset="1" stop-color="#121318"/></linearGradient>
+                  <linearGradient id="capri-face-fill" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#34694a"/><stop offset="1" stop-color="#0c281c"/></linearGradient>
+                  <linearGradient id="capri-hair-fill" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1d392e"/><stop offset="1" stop-color="#090e13"/></linearGradient>
+                </defs>
+                <ellipse cx="90" cy="210" rx="55" ry="7" fill="#45e582" opacity=".17"/>
+                <path d="M44 129 Q24 140 19 175 L12 216 L168 216 L161 175 Q152 140 136 129 L111 122 L69 122Z" fill="url(#capri-body-fill)" stroke="#48ba77" stroke-width="2"/>
+                <path d="M44 144 L28 212 M136 144 L153 212" fill="none" stroke="#fa4868" stroke-width="3" opacity=".75"/>
+                <path d="M64 123 L89 157 L116 123 L128 135 L92 193 L54 135 Z" fill="#0b1517" stroke="#306d51" stroke-width="2"/>
+                <path d="M77 153 L90 176 L102 153 L90 141Z" fill="#65ffa2" opacity=".8"/>
+                <path d="M48 54 Q40 16 75 9 Q116 -1 138 29 L144 68 L131 112 L117 128 L59 128 L45 108Z" fill="url(#capri-hair-fill)" stroke="#2b6948" stroke-width="2"/>
+                <ellipse cx="90" cy="74" rx="34" ry="43" fill="url(#capri-face-fill)" stroke="#7fdf9e" stroke-width="1.8"/>
+                <path d="M57 60 Q46 31 66 18 L84 28 Q117 7 133 38 L128 63 L119 44 Q93 61 67 46Z" fill="#0c1716" stroke="#65ca86" stroke-width="1.7"/>
+                <path d="M56 40 Q42 67 50 115 L61 131 M128 39 Q143 70 135 119" fill="none" stroke="#e84664" stroke-width="3" opacity=".73"/>
+                <g class="capri-open-eyes" fill="none" stroke="#95ffd0" stroke-width="2.2" stroke-linecap="round">
+                  <path d="M69 78 Q78 72 84 79 M98 79 Q107 72 115 78"/>
+                  <path d="M76 77 L77 82 M107 77 L106 82" stroke="#ec526b" stroke-width="2"/>
+                </g>
+                <g class="capri-closed-eyes" fill="none" stroke="#93ffc6" stroke-width="2.5" stroke-linecap="round">
+                  <path d="M69 78 Q77 85 85 78 M97 78 Q107 85 115 78"/>
+                </g>
+                <path class="capri-mouth-rest" d="M84 99 Q90 103 96 99" stroke="#ff697e" stroke-width="2" fill="none" stroke-linecap="round"/>
+                <ellipse class="capri-mouth-talking" cx="90" cy="100" rx="5" ry="5" fill="#ff8795" stroke="#ffa3ab" stroke-width="1"/>
+                <path d="M70 124 Q90 138 110 124" stroke="#72ffae" stroke-width="2" fill="none" opacity=".7"/>
+                <path d="M43 161 L23 184 M138 161 L157 184" stroke="#5aff96" stroke-width="2" opacity=".45"/>
+              </svg>
+              <div class="capri-art" id="capri-art" aria-hidden="true">
+                <img id="capri-base" class="capri-layer capri-layer-base" src="./assets/capri/base.png" alt="" decoding="async" draggable="false">
+                <img id="capri-eyes" class="capri-layer capri-layer-eyes" src="./assets/capri/eyes-closed.png" alt="" decoding="async" draggable="false">
+                <img id="capri-mouth" class="capri-layer capri-layer-mouth" src="./assets/capri/mouth-open.png" alt="" decoding="async" draggable="false">
+              </div>
+            </div>
+            <div class="capri-stage-label"><span id="capri-motion-label">2D // IDLE</span><small>ART SLOT READY</small></div>
           </div>
           <div class="character-title"><span class="overline">NEURAL COMPANION // 01</span><h1>CAPRI</h1><div class="subtitle">"Still here, choom."</div></div>
           <div class="mini-metrics"><span>◈ MEMORY <strong>LOCAL</strong></span><span>◈ VOICE <strong>DEVICE</strong></span></div>
@@ -233,6 +334,7 @@ main{background:radial-gradient(ellipse at 50% 12%,#11442b32,transparent 62%)}
         <div class="page-heading"><span class="overline">SYSTEM / STATUS</span><h2>CAPRI CORE</h2><p>Gemini integration. Desktop connection comes next.</p></div>
         <div class="data-card"><div class="card-label">ACTIVE SYSTEMS</div><div class="status-row"><span>Chat interface</span><b>ONLINE</b></div><div class="status-row"><span>Local conversation history</span><b>ONLINE</b></div><div class="status-row"><span>Server-powered replies</span><b id="core-ai">NOT CONNECTED</b></div><div class="status-row"><span>Cross-device sync</span><b class="muted">COMING LATER</b></div><div class="status-row"><span>Anime voice model</span><b class="muted">NOT INSTALLED</b></div></div>
         <div class="data-card"><div class="card-label">SESSION DATA</div><div class="stat-large"><span id="message-count">0</span> <small>MESSAGES STORED</small></div><div class="button-row"><button type="button" id="export-chat" class="control primary">EXPORT CHAT</button><button type="button" id="import-chat" class="control">IMPORT CHAT</button><input type="file" id="import-file" accept="application/json,.json" hidden></div><p class="help">Export your conversation before clearing browser data. This is not cloud sync.</p></div>
+        <div class="data-card"><div class="card-label">2D CHARACTER ENGINE</div><p class="body-text">A temporary animated silhouette is active until you add licensed Capri artwork. Optional full-frame transparent image layers: <code>assets/capri/base.png</code>, <code>assets/capri/eyes-closed.png</code>, and <code>assets/capri/mouth-open.png</code>. State transitions follow chat and voice. No real Live2D rig is installed.</p></div>
         <div class="data-card"><div class="card-label">BUILD NOTES</div><p class="body-text">Desktop Capricorn and mobile Capricorn are separate for now. A future authenticated server can share chat history, memory, and voice across both.</p></div>
       </section>
 
@@ -307,10 +409,44 @@ function render() {
   else history.forEach(addBubble);
   q('message-count').textContent = history.length;
 }
+
+// 2D asset stage. Images are optional; the in-page silhouette is the fallback.
+// All three PNGs share the same canvas and alignment. Never hide the fallback until base.png has loaded.
+function setupCapriStage() {
+  const stage = q('capri-stage');
+  const base = q('capri-base');
+  const assets = [base, q('capri-eyes'), q('capri-mouth')];
+  for (const img of assets) {
+    img.addEventListener('load', () => {
+      if (img === base) stage.classList.toggle('art-ready', img.naturalWidth > 0);
+      else img.classList.toggle('layer-ready', img.naturalWidth > 0);
+    });
+    img.addEventListener('error', () => {
+      if (img === base) stage.classList.remove('art-ready');
+      else img.classList.remove('layer-ready');
+    });
+    if (img.complete && img.naturalWidth > 0) {
+      if (img === base) stage.classList.add('art-ready');
+      else img.classList.add('layer-ready');
+    }
+  }
+  setCapriState('idle');
+}
+function setCapriState(next) {
+  const stage = q('capri-stage');
+  if (!stage) return;
+  const state = ['idle','thinking','talking'].includes(next) ? next : 'idle';
+  stage.dataset.state = state;
+  q('capri-motion-label').textContent = '2D // ' + state.toUpperCase();
+  stage.setAttribute('aria-label', (stage.classList.contains('art-ready') ? 'Animated Capri artwork' : 'Temporary animated 2D character silhouette') + ', ' + state);
+}
+
 function setBusy(flag) {
   busy = flag; q('send-button').disabled=flag; q('abort-button').hidden=!flag;
   q('chat-input').disabled=flag;
   q('send-button').textContent=flag ? '◌' : '➤';
+  if (flag) setCapriState('thinking');
+  else if (q('capri-stage')?.dataset.state === 'thinking') setCapriState('idle');
 }
 async function checkStatus() {
   online = false;
@@ -350,9 +486,9 @@ function speak(text) {
   const utter = new SpeechSynthesisUtterance(text);
   utter.lang = q('voice-language').value;
   utter.rate = 1.04;
-  utter.onstart=()=>{q('voice-status').textContent='Device voice speaking…';};
-  utter.onend=()=>{q('voice-status').textContent='Voice playback ended.';};
-  utter.onerror=()=>{q('voice-status').textContent='Could not play audio. Try tapping TEST VOICE.';};
+  utter.onstart=()=>{setCapriState('talking');q('voice-status').textContent='Device voice speaking…';};
+  utter.onend=()=>{setCapriState('idle');q('voice-status').textContent='Voice playback ended.';};
+  utter.onerror=()=>{setCapriState('idle');q('voice-status').textContent='Could not play audio. Try tapping TEST VOICE.';};
   speechSynthesis.speak(utter);
 }
 async function send(text) {
@@ -399,7 +535,7 @@ function download(name, content) {
   const url=URL.createObjectURL(blob); const link=document.createElement('a'); link.href=url;link.download=name;document.body.append(link); link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),5000);
 }
 function start() {
-  load(); render(); checkStatus();
+  setupCapriStage(); load(); render(); checkStatus();
   document.querySelectorAll('.nav-item').forEach(el=>el.addEventListener('click',()=>switchTab(el.dataset.tab)));
   q('status-button').addEventListener('click',()=>switchTab('settings'));
   q('save-connection').addEventListener('click',()=>{
@@ -416,7 +552,7 @@ function start() {
   q('speak-toggle').addEventListener('change',savePrefs);
   q('voice-language').addEventListener('change',savePrefs);
   q('test-speech').addEventListener('click',()=>speak(q('voice-language').value==='ja-JP' ? 'こんにちは、カプリです。' : 'Hey choom, Capri online. This is your iPhone voice test.'));
-  q('stop-speech').addEventListener('click',()=>{if('speechSynthesis' in window) speechSynthesis.cancel();q('voice-status').textContent='Audio stopped.';});
+  q('stop-speech').addEventListener('click',()=>{if('speechSynthesis' in window) speechSynthesis.cancel();setCapriState('idle');q('voice-status').textContent='Audio stopped.';});
   q('export-chat').addEventListener('click',()=>download('capri-mobile-chat.json',JSON.stringify({app:'capricorn-mobile',version:1, exportedAt:new Date().toISOString(),messages:history},null,2)));
   q('import-chat').addEventListener('click',()=>q('import-file').click());
   q('import-file').addEventListener('change',async e=>{
