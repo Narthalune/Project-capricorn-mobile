@@ -10,7 +10,7 @@
   <meta name="description" content="Project Capricorn: Capri, your pocket-sized AI companion.">
   <link rel="apple-touch-icon" href="./apple-touch-icon.png">
   <style>
-:root{color-scheme:dark;--bg:#080d18;--bg2:#0e1627;--surface:#101b2b;--line:#244059;--ink:#e9f7ff;--dim:#8296b1;--cyan:#45efea;--pink:#f76aab;--yellow:#f6ce65;--nav:74px}*{box-sizing:border-box}html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}body{background:radial-gradient(circle at 80% 0%,#15344a 0%,transparent 38%),linear-gradient(170deg,#080d18 10%,#0a1422 65%,#070e19)}button,input,select,textarea{font:inherit}button{cursor:pointer}button:focus-visible,textarea:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}.app-shell{position:relative;margin:auto;height:100%;height:100dvh;max-width:700px;min-height:500px;display:flex;flex-direction:column;border-inline:1px solid #193346;overflow:hidden}.app-shell:before{content:'';position:absolute;pointer-events:none;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,#ffffff03 4px);z-index:7}.topbar{padding:calc(9px + env(safe-area-inset-top)) 17px 12px;display:flex;align-items:center;gap:11px;border-bottom:1px solid var(--line);background:#080f1bcf;z-index:2}.brand-mark{width:38px;height:38px;border:1px solid var(--cyan);border-radius:9px;display:grid;place-items:center;color:var(--cyan);font-weight:950;font-size:23px;line-height:1;box-shadow:inset 0 0 12px #00eee226,0 0 12px #00eee20b;transform:skew(-5deg)}.brand-mark span{color:var(--pink);font-size:11px;position:absolute;bottom:3px;right:3px}.brand-label{flex:1;min-width:0}.brand-label strong{font-family:Impact,Haettenschweiler,'Arial Narrow Bold',sans-serif;letter-spacing:3px;font-size:22px;line-height:23px}.brand-dot{color:var(--pink)}.brand-label small{display:block;font-size:8px;letter-spacing:1.2px;color:var(--dim);font-weight:750}.tag{color:var(--cyan)}.status-button{border:1px solid #2d5267;background:#102635;color:var(--cyan);display:flex;align-items:center;gap:7px;border-radius:18px;padding:8px 10px;font-size:9px;font-weight:850;white-space:nowrap;letter-spacing:1px}.status-button i{width:7px;height:7px;border-radius:50%;background:var(--yellow);box-shadow:0 0 8px #f6ce65a8}.status-button i.connected{background:var(--cyan);box-shadow:0 0 8px var(--cyan)}main{flex:1;min-height:0;position:relative}.screen{display:none;height:100%;min-height:0}.screen.active{display:flex;flex-direction:column}.screen.other{overflow-y:auto;padding:22px 19px 36px;gap:14px}.character-head{padding:17px 10px 11px;display:flex;align-items:center;flex-direction:column;gap:5px;flex:none}.orb-wrap{height:126px;width:126px;position:relative;display:grid;place-items:center}.orbit{position:absolute;border-radius:50%;inset:8px;border:1px solid #3883a0;border-left-color:transparent;border-bottom-color:#f76aab;transform:rotate(20deg);animation:spin 14s linear infinite}.orbit.inner{inset:20px;border-style:dashed;border-width:1px;opacity:.66;animation-direction:reverse;animation-duration:18s}.avatar{width:84px;height:84px;border-radius:50%;border:2px solid #5fe8f2;box-shadow:0 0 26px #11dfee22,inset 0 0 32px #0deff322;background:radial-gradient(circle at 70% 25%,#254f67 0%,#0b1829 54%,#09101e 100%);position:relative;display:grid;place-items:center;overflow:hidden}.avatar:after{content:'';position:absolute;width:95px;height:18px;background:#1ef3f325;top:45px;left:-10px;transform:rotate(-25deg)}.avatar-symbol{font-family:Impact,Haettenschweiler,sans-serif;font-size:56px;letter-spacing:-4px;font-style:italic;color:#c4ffff;text-shadow:0 0 16px #37ffe2}.avatar-lines{height:30px;width:90px;position:absolute;top:18px;left:-4px;border-top:1px solid #e763a9;border-bottom:1px solid #45efea;transform:rotate(-27deg);opacity:.7}.orb-spark{position:absolute;width:6px;height:6px;background:var(--pink);transform:rotate(45deg);box-shadow:0 0 11px var(--pink)}.spark-a{left:0;top:24px}.spark-b{right:4px;bottom:13px;background:var(--cyan);box-shadow:0 0 11px var(--cyan)}.character-title{text-align:center}.overline{display:block;color:var(--cyan);font-size:10px;font-weight:750;letter-spacing:2.2px}.character-title h1{font-size:34px;margin:2px 0 0;letter-spacing:9px;font-weight:950;line-height:36px}.subtitle{font-size:12px;color:#b0bcd0;font-style:italic;margin-top:3px}.mini-metrics{display:flex;gap:18px;font-family:ui-monospace,monospace;font-size:9px;letter-spacing:.7px;color:#8299b0;margin:9px 0 0}.mini-metrics strong{color:#d6c5e4}.connection-note{padding:9px 14px;background:linear-gradient(90deg,#192d3c,#101c2c);border-top:1px solid #3d6b7d;border-bottom:1px solid #234358;font-size:10px;letter-spacing:.3px;line-height:1.5;color:#b7deea;text-align:center;flex:none}.messages{padding:15px 15px 10px;display:flex;flex-direction:column;gap:12px;flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#36768b transparent}.message{max-width:91%;padding:11px 13px 9px;border:1px solid #23485c;box-shadow:0 7px 26px #01071155;white-space:normal;overflow-wrap:anywhere}.message.assistant{align-self:flex-start;background:linear-gradient(135deg,#132b38,#101c30);border-radius:4px 13px 13px 13px;border-left:2px solid var(--cyan)}.message.user{align-self:flex-end;background:linear-gradient(135deg,#3a1b3b,#21213b);border-color:#75405e;border-radius:13px 4px 13px 13px;border-right:2px solid var(--pink)}.msg-author{font-size:9px;letter-spacing:1.7px;font-weight:900;color:var(--cyan);margin-bottom:6px}.user .msg-author{color:#ff85be}.msg-text{font-size:13px;line-height:1.54;white-space:pre-wrap}.msg-time{font-size:9px;text-align:right;color:#8194a9;margin-top:8px}.pending{opacity:.58}.composer{margin:0 12px 0;padding:5px 5px 5px 11px;border:1px solid #39768a;box-shadow:0 0 18px #07e9e90d;display:flex;align-items:end;background:#111e30;border-radius:10px;gap:6px;flex:none}.composer textarea{resize:none;min-height:42px;max-height:120px;flex:1;color:var(--ink);background:transparent;border:0;outline:0!important;font-size:14px;line-height:21px;padding:10px 0 9px}.composer textarea::placeholder{color:#748ca4}.composer button{width:39px;height:39px;border:0;color:#06111b;background:var(--cyan);font-size:21px;font-weight:950;border-radius:7px;flex:none}.composer button:disabled{opacity:.5}.composer-foot{text-align:center;min-height:26px;font-size:8px;color:#66849d;letter-spacing:1px;padding:7px 10px 5px}.composer-foot button{border:0;color:var(--pink);background:transparent;font-size:9px;margin-left:8px;font-weight:850}.bottom-nav{flex:none;display:flex;justify-content:space-around;border-top:1px solid #2c5060;background:linear-gradient(180deg,#101b2b,#0b1423);padding-bottom:env(safe-area-inset-bottom);z-index:2}.nav-item{background:transparent;border:0;color:#8194a8;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:var(--nav);flex:1;position:relative}.nav-item.active{color:var(--cyan)}.nav-item.active:before{content:'';position:absolute;top:0;width:55px;height:2px;background:var(--cyan);box-shadow:0 0 9px var(--cyan)}.nav-item span{font-size:24px;line-height:26px}.nav-item small{font-size:9px;font-weight:900;letter-spacing:1.6px}.page-heading h2{font-size:32px;letter-spacing:3px;margin:8px 0 1px;line-height:1.08}.page-heading p{color:#a4b6cb;font-size:13px;margin:7px 0 4px}.data-card{border:1px solid #315268;background:linear-gradient(135deg,#142538f2,#101a29f2);border-radius:4px;padding:17px;box-shadow:0 8px 32px #03101c55}.card-label{color:var(--cyan);font-size:10px;letter-spacing:2.2px;font-weight:850;border-bottom:1px solid #274658;padding-bottom:12px;margin-bottom:12px}.status-row{display:flex;justify-content:space-between;gap:15px;padding:10px 0;border-bottom:1px solid #ffffff10;font-size:12px;color:#b2c3d0}.status-row b{color:var(--cyan);font-size:10px;text-align:right;white-space:nowrap}.status-row b.muted{color:#77879d}.stat-large{display:flex;align-items:baseline;gap:11px;font-size:40px;font-weight:900;color:var(--pink)}.stat-large small{font-size:9px;letter-spacing:1.3px;color:#90a5bc}.button-row{display:flex;gap:8px;margin-top:13px}.control{padding:11px 12px;border:1px solid #42778c;border-radius:4px;background:#132b3a;color:#dcfaff;font-size:11px;font-weight:850;letter-spacing:1px;min-width:0;flex:1}.control.primary{background:#1d6c75;border-color:#48d6d2}.control.danger{color:#ff8cbf;border-color:#913e68;background:#381c33}.control.full{width:100%;margin-top:11px}.help{color:#91a6b9;font-size:11px;line-height:1.55;margin:11px 0 0}.body-text{color:#bbcada;font-size:13px;line-height:1.6}.input-label{font-size:10px;color:#95adbd;display:block;letter-spacing:1.2px;font-weight:800;margin:17px 0 7px}.data-card input[type=password],.data-card select{color:#f1fcff;background:#0b1b2b;border:1px solid #386377;border-radius:5px;width:100%;padding:12px;font-size:14px}.setting-line{display:flex;justify-content:space-between;align-items:center;gap:10px;color:#d2e4ee;font-size:13px;font-weight:700}.setting-line small{display:block;color:#8aa2b4;font-size:10px;line-height:1.5;font-weight:400;margin-top:3px}.setting-line input{accent-color:#26cbd2;width:23px;height:23px}.install-card{margin-bottom:20px}.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}@keyframes spin{to{transform:rotate(380deg)}}@media(max-height:720px){.character-head{padding:6px 10px}.orb-wrap{height:94px;width:94px}.avatar{width:65px;height:65px}.avatar-symbol{font-size:42px}.character-title h1{font-size:26px;line-height:29px}.mini-metrics{margin-top:2px}.topbar{padding-bottom:8px}.message{padding:9px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+:root{color-scheme:dark;--bg:#080d18;--bg2:#0e1627;--surface:#101b2b;--line:#244059;--ink:#e9f7ff;--dim:#8296b1;--cyan:#45efea;--pink:#f76aab;--yellow:#f6ce65;--nav:74px}*{box-sizing:border-box}html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}body{background:radial-gradient(circle at 80% 0%,#15344a 0%,transparent 38%),linear-gradient(170deg,#080d18 10%,#0a1422 65%,#070e19)}button,input,select,textarea{font:inherit}button{cursor:pointer}button:focus-visible,textarea:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}.app-shell{position:relative;margin:auto;height:100%;height:100dvh;max-width:700px;min-height:500px;display:flex;flex-direction:column;border-inline:1px solid #193346;overflow:hidden}.app-shell:before{content:'';position:absolute;pointer-events:none;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,#ffffff03 4px);z-index:7}.topbar{padding:calc(9px + env(safe-area-inset-top)) 17px 12px;display:flex;align-items:center;gap:11px;border-bottom:1px solid var(--line);background:#080f1bcf;z-index:2}.brand-mark{width:38px;height:38px;border:1px solid var(--cyan);border-radius:9px;display:grid;place-items:center;color:var(--cyan);font-weight:950;font-size:23px;line-height:1;box-shadow:inset 0 0 12px #00eee226,0 0 12px #00eee20b;transform:skew(-5deg)}.brand-mark span{color:var(--pink);font-size:11px;position:absolute;bottom:3px;right:3px}.brand-label{flex:1;min-width:0}.brand-label strong{font-family:Impact,Haettenschweiler,'Arial Narrow Bold',sans-serif;letter-spacing:3px;font-size:22px;line-height:23px}.brand-dot{color:var(--pink)}.brand-label small{display:block;font-size:8px;letter-spacing:1.2px;color:var(--dim);font-weight:750}.tag{color:var(--cyan)}.status-button{border:1px solid #2d5267;background:#102635;color:var(--cyan);display:flex;align-items:center;gap:7px;border-radius:18px;padding:8px 10px;font-size:9px;font-weight:850;white-space:nowrap;letter-spacing:1px}.status-button i{width:7px;height:7px;border-radius:50%;background:var(--yellow);box-shadow:0 0 8px #f6ce65a8}.status-button i.connected{background:var(--cyan);box-shadow:0 0 8px var(--cyan)}main{flex:1;min-height:0;position:relative}.screen{display:none;height:100%;min-height:0}.screen.active{display:flex;flex-direction:column}.screen.other{overflow-y:auto;padding:22px 19px 36px;gap:14px}.character-head{padding:17px 10px 11px;display:flex;align-items:center;flex-direction:column;gap:5px;flex:none}.orb-wrap{height:126px;width:126px;position:relative;display:grid;place-items:center}.orbit{position:absolute;border-radius:50%;inset:8px;border:1px solid #3883a0;border-left-color:transparent;border-bottom-color:#f76aab;transform:rotate(20deg);animation:spin 14s linear infinite}.orbit.inner{inset:20px;border-style:dashed;border-width:1px;opacity:.66;animation-direction:reverse;animation-duration:18s}.avatar{width:84px;height:84px;border-radius:50%;border:2px solid #5fe8f2;box-shadow:0 0 26px #11dfee22,inset 0 0 32px #0deff322;background:radial-gradient(circle at 70% 25%,#254f67 0%,#0b1829 54%,#09101e 100%);position:relative;display:grid;place-items:center;overflow:hidden}.avatar:after{content:'';position:absolute;width:95px;height:18px;background:#1ef3f325;top:45px;left:-10px;transform:rotate(-25deg)}.avatar-symbol{font-family:Impact,Haettenschweiler,sans-serif;font-size:56px;letter-spacing:-4px;font-style:italic;color:#c4ffff;text-shadow:0 0 16px #37ffe2}.avatar-lines{height:30px;width:90px;position:absolute;top:18px;left:-4px;border-top:1px solid #e763a9;border-bottom:1px solid #45efea;transform:rotate(-27deg);opacity:.7}.orb-spark{position:absolute;width:6px;height:6px;background:var(--pink);transform:rotate(45deg);box-shadow:0 0 11px var(--pink)}.spark-a{left:0;top:24px}.spark-b{right:4px;bottom:13px;background:var(--cyan);box-shadow:0 0 11px var(--cyan)}.character-title{text-align:center}.overline{display:block;color:var(--cyan);font-size:10px;font-weight:750;letter-spacing:2.2px}.character-title h1{font-size:34px;margin:2px 0 0;letter-spacing:9px;font-weight:950;line-height:36px}.subtitle{font-size:12px;color:#b0bcd0;font-style:italic;margin-top:3px}.mini-metrics{display:flex;gap:18px;font-family:ui-monospace,monospace;font-size:9px;letter-spacing:.7px;color:#8299b0;margin:9px 0 0}.mini-metrics strong{color:#d6c5e4}.connection-note{padding:9px 14px;background:linear-gradient(90deg,#192d3c,#101c2c);border-top:1px solid #3d6b7d;border-bottom:1px solid #234358;font-size:10px;letter-spacing:.3px;line-height:1.5;color:#b7deea;text-align:center;flex:none}.messages{padding:15px 15px 10px;display:flex;flex-direction:column;gap:12px;flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#36768b transparent}.message{max-width:91%;padding:11px 13px 9px;border:1px solid #23485c;box-shadow:0 7px 26px #01071155;white-space:normal;overflow-wrap:anywhere}.message.assistant{align-self:flex-start;background:linear-gradient(135deg,#132b38,#101c30);border-radius:4px 13px 13px 13px;border-left:2px solid var(--cyan)}.message.user{align-self:flex-end;background:linear-gradient(135deg,#3a1b3b,#21213b);border-color:#75405e;border-radius:13px 4px 13px 13px;border-right:2px solid var(--pink)}.msg-author{font-size:9px;letter-spacing:1.7px;font-weight:900;color:var(--cyan);margin-bottom:6px}.user .msg-author{color:#ff85be}.msg-text{font-size:13px;line-height:1.54;white-space:pre-wrap}.msg-time{font-size:9px;text-align:right;color:#8194a9;margin-top:8px}.pending{opacity:.58}.composer{margin:0 12px 0;padding:5px 5px 5px 11px;border:1px solid #39768a;box-shadow:0 0 18px #07e9e90d;display:flex;align-items:end;background:#111e30;border-radius:10px;gap:6px;flex:none}.composer textarea{resize:none;min-height:42px;max-height:120px;flex:1;color:var(--ink);background:transparent;border:0;outline:0!important;font-size:14px;line-height:21px;padding:10px 0 9px}.composer textarea::placeholder{color:#748ca4}.composer button{width:39px;height:39px;border:0;color:#06111b;background:var(--cyan);font-size:21px;font-weight:950;border-radius:7px;flex:none}.composer button:disabled{opacity:.5}.composer-foot{text-align:center;min-height:26px;font-size:8px;color:#66849d;letter-spacing:1px;padding:7px 10px 5px}.composer-foot button{border:0;color:var(--pink);background:transparent;font-size:9px;margin-left:8px;font-weight:850}.bottom-nav{flex:none;display:flex;justify-content:space-around;border-top:1px solid #2c5060;background:linear-gradient(180deg,#101b2b,#0b1423);padding-bottom:env(safe-area-inset-bottom);z-index:2}.nav-item{background:transparent;border:0;color:#8194a8;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:var(--nav);flex:1;position:relative}.nav-item.active{color:var(--cyan)}.nav-item.active:before{content:'';position:absolute;top:0;width:55px;height:2px;background:var(--cyan);box-shadow:0 0 9px var(--cyan)}.nav-item span{font-size:24px;line-height:26px}.nav-item small{font-size:9px;font-weight:900;letter-spacing:1.6px}.page-heading h2{font-size:32px;letter-spacing:3px;margin:8px 0 1px;line-height:1.08}.page-heading p{color:#a4b6cb;font-size:13px;margin:7px 0 4px}.data-card{border:1px solid #315268;background:linear-gradient(135deg,#142538f2,#101a29f2);border-radius:4px;padding:17px;box-shadow:0 8px 32px #03101c55}.card-label{color:var(--cyan);font-size:10px;letter-spacing:2.2px;font-weight:850;border-bottom:1px solid #274658;padding-bottom:12px;margin-bottom:12px}.status-row{display:flex;justify-content:space-between;gap:15px;padding:10px 0;border-bottom:1px solid #ffffff10;font-size:12px;color:#b2c3d0}.status-row b{color:var(--cyan);font-size:10px;text-align:right;white-space:nowrap}.status-row b.muted{color:#77879d}.stat-large{display:flex;align-items:baseline;gap:11px;font-size:40px;font-weight:900;color:var(--pink)}.stat-large small{font-size:9px;letter-spacing:1.3px;color:#90a5bc}.button-row{display:flex;gap:8px;margin-top:13px}.control{padding:11px 12px;border:1px solid #42778c;border-radius:4px;background:#132b3a;color:#dcfaff;font-size:11px;font-weight:850;letter-spacing:1px;min-width:0;flex:1}.control.primary{background:#1d6c75;border-color:#48d6d2}.control.danger{color:#ff8cbf;border-color:#913e68;background:#381c33}.control.full{width:100%;margin-top:11px}.help{color:#91a6b9;font-size:11px;line-height:1.55;margin:11px 0 0}.body-text{color:#bbcada;font-size:13px;line-height:1.6}.input-label{font-size:10px;color:#95adbd;display:block;letter-spacing:1.2px;font-weight:800;margin:17px 0 7px}.data-card input[type=password],.data-card input[type=url],.data-card select{color:#f1fcff;background:#0b1b2b;border:1px solid #386377;border-radius:5px;width:100%;padding:12px;font-size:14px}.setting-line{display:flex;justify-content:space-between;align-items:center;gap:10px;color:#d2e4ee;font-size:13px;font-weight:700}.setting-line small{display:block;color:#8aa2b4;font-size:10px;line-height:1.5;font-weight:400;margin-top:3px}.setting-line input{accent-color:#26cbd2;width:23px;height:23px}.install-card{margin-bottom:20px}.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}@keyframes spin{to{transform:rotate(380deg)}}@media(max-height:720px){.character-head{padding:6px 10px}.orb-wrap{height:94px;width:94px}.avatar{width:65px;height:65px}.avatar-symbol{font-size:42px}.character-title h1{font-size:26px;line-height:29px}.mini-metrics{margin-top:2px}.topbar{padding-bottom:8px}.message{padding:9px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
 
   </style>
   <title>CAPRI // Capricorn Mobile</title>
@@ -19,7 +19,7 @@
   <div class="app-shell">
     <header class="topbar">
       <div class="brand-mark" aria-hidden="true">C<span>⌁</span></div>
-      <div class="brand-label"><strong>CAPRI<span class="brand-dot">.</span></strong><small>PROJECT CAPRICORN <span class="tag">MOBILE / PREVIEW 0.1.1</span></small></div>
+      <div class="brand-label"><strong>CAPRI<span class="brand-dot">.</span></strong><small>PROJECT CAPRICORN <span class="tag">MOBILE / GEMINI 0.2</span></small></div>
       <button id="status-button" class="status-button" type="button" aria-label="Open connection settings"><i id="status-led"></i><span id="status-label">CHECKING</span></button>
     </header>
 
@@ -45,7 +45,7 @@
       </section>
 
       <section id="panel-core" class="screen other" aria-label="Core">
-        <div class="page-heading"><span class="overline">SYSTEM / STATUS</span><h2>CAPRI CORE</h2><p>Mobile identity. Desktop integration comes next.</p></div>
+        <div class="page-heading"><span class="overline">SYSTEM / STATUS</span><h2>CAPRI CORE</h2><p>Gemini integration. Desktop connection comes next.</p></div>
         <div class="data-card"><div class="card-label">ACTIVE SYSTEMS</div><div class="status-row"><span>Chat interface</span><b>ONLINE</b></div><div class="status-row"><span>Local conversation history</span><b>ONLINE</b></div><div class="status-row"><span>Server-powered replies</span><b id="core-ai">NOT CONNECTED</b></div><div class="status-row"><span>Cross-device sync</span><b class="muted">COMING LATER</b></div><div class="status-row"><span>Anime voice model</span><b class="muted">NOT INSTALLED</b></div></div>
         <div class="data-card"><div class="card-label">SESSION DATA</div><div class="stat-large"><span id="message-count">0</span> <small>MESSAGES STORED</small></div><div class="button-row"><button type="button" id="export-chat" class="control primary">EXPORT CHAT</button><button type="button" id="import-chat" class="control">IMPORT CHAT</button><input type="file" id="import-file" accept="application/json,.json" hidden></div><p class="help">Export your conversation before clearing browser data. This is not cloud sync.</p></div>
         <div class="data-card"><div class="card-label">BUILD NOTES</div><p class="body-text">Desktop Capricorn and mobile Capricorn are separate for now. A future authenticated server can share chat history, memory, and voice across both.</p></div>
@@ -53,7 +53,15 @@
 
       <section id="panel-settings" class="screen other" aria-label="Settings">
         <div class="page-heading"><span class="overline">SYSTEM / CONTROLS</span><h2>SETTINGS</h2><p>Tune the pocket-sized experience.</p></div>
-        <div class="data-card"><div class="card-label">AI CONNECTION</div><p class="help">This is Capri's mobile preview. You can type, save messages, export them, and test system voices. Live AI replies will arrive in a future version with a compatible backend. No API key or server is needed for this preview.</p></div>
+        <div class="data-card"><div class="card-label">AI CONNECTION / GEMINI</div>
+          <p class="body-text">Connect to your private Cloudflare Worker. The Google API key stays on the Worker, NEVER on this public website.</p>
+          <label class="input-label" for="server-url">CLOUDFLARE WORKER URL</label>
+          <input id="server-url" type="url" inputmode="url" placeholder="https://capricorn-api.username.workers.dev" autocomplete="url">
+          <label class="input-label" for="access-token">YOUR PRIVATE ACCESS TOKEN</label>
+          <input id="access-token" type="password" placeholder="The token you saved in Cloudflare" autocomplete="off">
+          <div class="button-row"><button type="button" id="save-connection" class="control primary">SAVE & TEST</button><button type="button" id="test-connection" class="control">TEST</button></div>
+          <p id="connection-status" class="help" role="status">Your connection settings are saved only on this iPhone. Do not share your access token.</p>
+        </div>
         <div class="data-card"><div class="card-label">VOICE PLAYBACK</div><label class="setting-line"><span>Speak Capri's replies <small>Uses iPhone system voices, not the anime actor</small></span><input id="speak-toggle" type="checkbox"></label><label class="input-label" for="voice-language">SPEECH LANGUAGE</label><select id="voice-language"><option value="en-US">English</option><option value="ja-JP">Japanese</option></select><div class="button-row"><button type="button" id="test-speech" class="control">TEST VOICE</button><button type="button" id="stop-speech" class="control">STOP AUDIO</button></div><p id="voice-status" class="help" role="status"></p></div>
         <div class="data-card"><div class="card-label">LOCAL DATA</div><button id="clear-chat" type="button" class="control danger full">CLEAR CHAT ON THIS PHONE</button><p class="help">This removes only this phone's saved conversation, not any desktop history.</p></div>
         <div class="data-card install-card"><div class="card-label">IPHONE INSTALL</div><p class="body-text">Open your GitHub Pages link in Safari, choose Share → Add to Home Screen, leave “Open as Web App” on, and tap Add.</p></div>
@@ -69,6 +77,7 @@ let history = [];
 let online = false;
 let busy = false;
 let controller = null;
+let connection = { url: '', token: '' };
 
 function load() {
   try {
@@ -79,6 +88,10 @@ function load() {
     const saved = JSON.parse(localStorage.getItem(PREFS) || '{}');
     q('speak-toggle').checked = saved.speak === true;
     q('voice-language').value = saved.language === 'ja-JP' ? 'ja-JP' : 'en-US';
+    connection.url = typeof saved.url === 'string' ? saved.url : '';
+    connection.token = typeof saved.token === 'string' ? saved.token : '';
+    q('server-url').value = connection.url;
+    q('access-token').value = connection.token;
   } catch {}
 }
 function save() {
@@ -87,7 +100,7 @@ function save() {
   q('message-count').textContent = history.length;
 }
 function savePrefs() {
-  localStorage.setItem(PREFS, JSON.stringify({speak: q('speak-toggle').checked, language: q('voice-language').value}));
+  localStorage.setItem(PREFS, JSON.stringify({speak: q('speak-toggle').checked, language: q('voice-language').value, url:connection.url, token:connection.token}));
 }
 function setNote(text) {q('connection-note').textContent = text;}
 function stamp(ts) {
@@ -105,7 +118,7 @@ function addBubble(m) {
 }
 function render() {
   q('messages').replaceChildren();
-  if (!history.length) addBubble({role:'assistant', text:'Hey, choom. Capri Mobile is online as a preview. Chat history works on this phone; AI replies are not connected yet. ✨', ts:Date.now()});
+  if (!history.length) addBubble({role:'assistant', text:"Hey, choom. I'm Capri! Go to SETTINGS to connect my Gemini brain. ✨", ts:Date.now()});
   else history.forEach(addBubble);
   q('message-count').textContent = history.length;
 }
@@ -115,12 +128,37 @@ function setBusy(flag) {
   q('send-button').textContent=flag ? '◌' : '➤';
 }
 async function checkStatus() {
-  online = false; // Static GitHub Pages preview has no server.
-  q('status-led').classList.toggle('connected',online);
-  q('status-label').textContent = online ? 'AI READY' : 'PREVIEW';
-  q('core-ai').textContent = online ? 'SERVER READY' : 'NOT CONNECTED';
-  setNote('PREVIEW MODE // Your chat saves on this phone. AI replies are not connected.');
+  online = false;
+  const url = connection.url.replace(/\/+$/, '');
+  if (!url || !connection.token) {
+    q('status-label').textContent = 'SETUP';
+    q('core-ai').textContent = 'NOT CONNECTED';
+    q('status-led').classList.remove('connected');
+    setNote('Open SETTINGS to add your Worker address and access token.');
+    q('connection-status').textContent = 'Worker URL and access token needed.';
+    return;
+  }
+  try {
+    const parsed = new URL(url);
+    if (parsed.protocol !== 'https:') throw new Error('Use an https:// Worker URL.');
+    const response = await fetch(`${url}/health`, {
+      headers: {Authorization: `Bearer ${connection.token}`},
+      signal: AbortSignal.timeout(12000), cache:'no-store'
+    });
+    const result = await response.json();
+    if (!response.ok || result.ok !== true) throw new Error(result.error || `Server replied ${response.status}`);
+    online = true;
+    q('connection-status').textContent = `Connected to Gemini! Model: ${result.model}`;
+    setNote('GEMINI ONLINE // Replies are powered by your private Cloudflare Worker.');
+  } catch (error) {
+    q('connection-status').textContent = `Connection failed: ${error.message}`;
+    setNote('AI not connected. Open SETTINGS to check your server URL and token.');
+  }
+  q('status-led').classList.toggle('connected', online);
+  q('status-label').textContent = online ? 'AI READY' : 'OFFLINE';
+  q('core-ai').textContent = online ? 'GEMINI READY' : 'NOT CONNECTED';
 }
+
 function speak(text) {
   if (!('speechSynthesis' in window)) {q('voice-status').textContent='Speech synthesis is unavailable on this browser.'; return;}
   speechSynthesis.cancel();
@@ -134,13 +172,38 @@ function speak(text) {
 }
 async function send(text) {
   if (!text || busy) return;
-  const message = {role:'user',text:text.slice(0,3000),ts:Date.now()};
-  history.push(message); history=history.slice(-80); save(); addBubble(message);
-  q('chat-input').value='';
-  if (!online) {setNote('Message saved on this phone. This preview cannot reply yet.'); return;}
-  setNote('This preview has no AI server yet.');
-
+  if (!connection.url || !connection.token) {
+    setNote('Open SETTINGS and connect Capri to your Cloudflare Worker first.');
+    switchTab('settings');
+    return;
+  }
+  const message = {role:'user', text:text.slice(0,3000), ts:Date.now()};
+  history.push(message); history = history.slice(-80); save(); addBubble(message);
+  q('chat-input').value = '';
+  controller = new AbortController();
+  setBusy(true);
+  setNote('Capri is thinking…');
+  try {
+    const url = connection.url.replace(/\/+$/, '');
+    if (!url.startsWith('https://')) throw new Error('The Worker URL must start with https://');
+    const response = await fetch(`${url}/chat`, {
+      method:'POST',
+      headers:{ 'Content-Type':'application/json', 'Authorization':`Bearer ${connection.token}` },
+      body:JSON.stringify({messages:history.slice(-18).map(m=>({role:m.role,text:m.text}))}),
+      signal:controller.signal
+    });
+    const result = await response.json();
+    if (!response.ok || typeof result.reply !== 'string') throw new Error(result.error || `Server error ${response.status}`);
+    const assistantMessage = {role:'assistant',text:result.reply,ts:Date.now()};
+    history.push(assistantMessage); history = history.slice(-80); save(); addBubble(assistantMessage);
+    setNote('GEMINI ONLINE // Chat saved on this device.');
+    if(q('speak-toggle').checked) speak(result.reply);
+  } catch(error) {
+    const msg = error.name==='AbortError' ? 'Response stopped.' : `Could not get a reply: ${error.message}`;
+    setNote(msg);
+  } finally { setBusy(false); controller = null; }
 }
+
 function switchTab(tab) {
   document.querySelectorAll('.screen').forEach(el=>el.classList.toggle('active', el.id === `panel-${tab}`));
   document.querySelectorAll('.nav-item').forEach(el=>el.classList.toggle('active',el.dataset.tab === tab));
@@ -154,6 +217,14 @@ function start() {
   load(); render(); checkStatus();
   document.querySelectorAll('.nav-item').forEach(el=>el.addEventListener('click',()=>switchTab(el.dataset.tab)));
   q('status-button').addEventListener('click',()=>switchTab('settings'));
+  q('save-connection').addEventListener('click',()=>{
+    connection = {url:q('server-url').value.trim().replace(/\/+$/, ''), token:q('access-token').value.trim()};
+    savePrefs(); checkStatus();
+  });
+  q('test-connection').addEventListener('click',()=>{
+    connection = {url:q('server-url').value.trim().replace(/\/+$/, ''), token:q('access-token').value.trim()};
+    savePrefs(); checkStatus();
+  });
   q('chat-form').addEventListener('submit',e=>{e.preventDefault();send(q('chat-input').value.trim());});
   q('chat-input').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();q('chat-form').requestSubmit();}});
   q('abort-button').addEventListener('click',()=>controller?.abort());
