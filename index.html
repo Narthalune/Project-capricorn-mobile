@@ -271,13 +271,23 @@ main{background:radial-gradient(ellipse at 50% 12%,#11442b32,transparent 62%)}
   .capri-stage.art-ready[data-state="talking"] .capri-layer-mouth.layer-ready{opacity:1!important}}
 
   </style>
+<style id="capri-desktop-sprites-v06">
+/* Actual full-body Capri Desktop animated sprite strips, no generated portrait. */
+.capri-stage.desktop-sprite .capri-figure{width:116px;height:185px;animation:none;transform:none;filter:drop-shadow(0 8px 10px #000a) drop-shadow(-2px 0 5px #fd2b6a48)}
+.capri-stage.desktop-sprite .capri-art{display:block}
+.capri-stage.desktop-sprite .capri-placeholder{display:none}
+.capri-desktop-sprite{position:absolute;inset:0;display:block;background-repeat:no-repeat;background-position:0 0;background-size:1600% 100%;image-rendering:auto}
+#panel-chat:has(.message.user) .capri-stage.desktop-sprite .capri-figure{width:55px;height:88px}
+@media(max-height:740px){.capri-stage.desktop-sprite .capri-figure{width:80px;height:128px}}
+@media(prefers-reduced-motion:reduce){.capri-stage.desktop-sprite .capri-figure{animation:none!important}}
+</style>
   <title>CAPRI // Capricorn Mobile</title>
 </head>
 <body>
   <div class="app-shell">
     <header class="topbar">
       <div class="brand-mark" aria-hidden="true">C<span>⌁</span></div>
-      <div class="brand-label"><strong>CAPRI<span class="brand-dot">.</span></strong><small>PROJECT CAPRICORN <span class="tag">MOBILE / CHARACTER 0.5</span></small></div>
+      <div class="brand-label"><strong>CAPRI<span class="brand-dot">.</span></strong><small>PROJECT CAPRICORN <span class="tag">MOBILE / DESKTOP SPRITE 0.6</span></small></div>
       <button id="status-button" class="status-button" type="button" aria-label="Open connection settings"><i id="status-led"></i><span id="status-label">CHECKING</span></button>
     </header>
 
@@ -316,12 +326,10 @@ main{background:radial-gradient(ellipse at 50% 12%,#11442b32,transparent 62%)}
                 <path d="M43 161 L23 184 M138 161 L157 184" stroke="#5aff96" stroke-width="2" opacity=".45"/>
               </svg>
               <div class="capri-art" id="capri-art" aria-hidden="true">
-                <img id="capri-base" class="capri-layer capri-layer-base" src="./assets/capri/base.webp?v=05" alt="" decoding="async" draggable="false">
-                <img id="capri-eyes" class="capri-layer capri-layer-eyes" src="./assets/capri/eyes-closed.png" alt="" decoding="async" draggable="false">
-                <img id="capri-mouth" class="capri-layer capri-layer-mouth" src="./assets/capri/mouth-open.png" alt="" decoding="async" draggable="false">
+                <div id="capri-desktop-sprite" class="capri-desktop-sprite"></div>
               </div>
             </div>
-            <div class="capri-stage-label"><span id="capri-motion-label">2D // IDLE</span><small>CAPRI // LIVE SPRITE</small></div>
+            <div class="capri-stage-label"><span id="capri-motion-label">2D // IDLE</span><small>CAPRI // DESKTOP SPRITE</small></div>
           </div>
           <div class="character-title"><span class="overline">NEURAL COMPANION // 01</span><h1>CAPRI</h1><div class="subtitle">"Still here, choom."</div></div>
           <div class="mini-metrics"><span>◈ MEMORY <strong>LOCAL</strong></span><span>◈ VOICE <strong>DEVICE</strong></span></div>
@@ -340,7 +348,7 @@ main{background:radial-gradient(ellipse at 50% 12%,#11442b32,transparent 62%)}
         <div class="page-heading"><span class="overline">SYSTEM / STATUS</span><h2>CAPRI CORE</h2><p>Gemini integration. Desktop connection comes next.</p></div>
         <div class="data-card"><div class="card-label">ACTIVE SYSTEMS</div><div class="status-row"><span>Chat interface</span><b>ONLINE</b></div><div class="status-row"><span>Local conversation history</span><b>ONLINE</b></div><div class="status-row"><span>Server-powered replies</span><b id="core-ai">NOT CONNECTED</b></div><div class="status-row"><span>Cross-device sync</span><b class="muted">COMING LATER</b></div><div class="status-row"><span>Anime voice model</span><b class="muted">NOT INSTALLED</b></div></div>
         <div class="data-card"><div class="card-label">SESSION DATA</div><div class="stat-large"><span id="message-count">0</span> <small>MESSAGES STORED</small></div><div class="button-row"><button type="button" id="export-chat" class="control primary">EXPORT CHAT</button><button type="button" id="import-chat" class="control">IMPORT CHAT</button><input type="file" id="import-file" accept="application/json,.json" hidden></div><p class="help">Export your conversation before clearing browser data. This is not cloud sync.</p></div>
-        <div class="data-card"><div class="card-label">2D CHARACTER ENGINE</div><p class="body-text">A temporary animated silhouette is active until you add licensed Capri artwork. Optional full-frame transparent image layers: <code>assets/capri/base.png</code>, <code>assets/capri/eyes-closed.png</code>, and <code>assets/capri/mouth-open.png</code>. State transitions follow chat and voice. No real Live2D rig is installed.</p></div>
+        <div class="data-card"><div class="card-label">2D CHARACTER ENGINE</div><p class="body-text">The original <a href="https://github.com/lachydotmcg/capri-desktop" target="_blank" rel="noopener noreferrer" style="color:#8dffb1">Capri Desktop sprite sheets</a> now animate on mobile: idle, blink, glitch and mouth movement. Images load from the original project website rather than being republished here. Requires internet for the sprite images; this is a sprite animation, not a Live2D rig. Art and character rights remain with their respective owners.</p></div>
         <div class="data-card"><div class="card-label">BUILD NOTES</div><p class="body-text">Desktop Capricorn and mobile Capricorn are separate for now. A future authenticated server can share chat history, memory, and voice across both.</p></div>
       </section>
 
@@ -416,27 +424,45 @@ function render() {
   q('message-count').textContent = history.length;
 }
 
-// 2D asset stage. Images are optional; the in-page silhouette is the fallback.
-// All three PNGs share the same canvas and alignment. Never hide the fallback until base.png has loaded.
+// Capri Desktop animated sprite sheets; fallback silhouette displays if upstream art cannot load.
 function setupCapriStage() {
-  const stage = q('capri-stage');
-  const base = q('capri-base');
-  const assets = [base, q('capri-eyes'), q('capri-mouth')];
-  for (const img of assets) {
-    img.addEventListener('load', () => {
-      if (img === base) stage.classList.toggle('art-ready', img.naturalWidth > 0);
-      else img.classList.toggle('layer-ready', img.naturalWidth > 0);
-    });
-    img.addEventListener('error', () => {
-      if (img === base) stage.classList.remove('art-ready');
-      else img.classList.remove('layer-ready');
-    });
-    if (img.complete && img.naturalWidth > 0) {
-      if (img === base) stage.classList.add('art-ready');
-      else img.classList.add('layer-ready');
-    }
+  // Reuses the original Capri Desktop sprite strips hosted by their creator.
+  // Original: https://github.com/lachydotmcg/capri-desktop/tree/main/site/assets/sprites
+  const stage=q('capri-stage'), sprite=q('capri-desktop-sprite');
+  const root='https://lachydotmcg.github.io/capri-desktop/assets/sprites/';
+  const clips={idle:[16,8],blink:[4,8],blink_glitch:[4,8],mouth:[5,12],glitch:[10,15],grin:[16,8]};
+  const ready=new Set(), reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let shown='', layers='', lastState='idle', switchedAt=0, nextBlink=0, blinkNow=false;
+  for(const name of Object.keys(clips)) {
+    const im=new Image();
+    im.addEventListener('load',()=>{ready.add(name);if(name==='idle'){stage.classList.add('art-ready','desktop-sprite');setCapriState(stage.dataset.state||'idle');}});
+    im.addEventListener('error',()=>{if(name==='idle'){stage.classList.remove('art-ready','desktop-sprite');stage.setAttribute('aria-label','Desktop Capri sprite unavailable; fallback silhouette displayed');}});
+    im.src=root+name+'.webp';
+    if(im.complete&&im.naturalWidth){ready.add(name);if(name==='idle')stage.classList.add('art-ready','desktop-sprite');}
   }
-  setCapriState('idle');
+  function draw(time) {
+    const state=stage.dataset.state||'idle';
+    if(state!==lastState){lastState=state;switchedAt=time;}
+    // One brief digital glitch when thinking; otherwise the authentic 16-frame idle.
+    const glitch=state==='thinking'&&ready.has('glitch')&&time-switchedAt<680&&!reduced;
+    let name=glitch?'glitch':'idle';
+    const [count,fps]=clips[name], frame=reduced?0:Math.floor(time/(1000/fps))%count;
+    if(time>nextBlink){nextBlink=time+5500+Math.random()*2500;blinkNow=Math.random()<.8;}
+    let cell=frame;
+    if(name==='idle'&&blinkNow&&ready.has('blink')&&frame>=9&&frame<13&&!reduced){name='blink';cell=frame-9;}
+    const talking=state==='talking'&&ready.has('mouth')&&!reduced;
+    const mouthCell=Math.floor(time/(1000/12))%5;
+    const nextLayers=talking?'mouth,'+name:name;
+    if(nextLayers!==layers) {
+      layers=nextLayers;
+      sprite.style.backgroundImage=(talking?'url("'+root+'mouth.webp"), ':'')+'url("'+root+name+'.webp")';
+      sprite.style.backgroundSize=(talking?'500% 100%, ':'')+(clips[name][0]*100)+'% 100%';
+    }
+    const key=name+':'+cell+':'+(talking?mouthCell:-1);
+    if(key!==shown){shown=key;sprite.style.backgroundPosition=(talking?(mouthCell/4*100)+'% 0, ':'')+(cell/(clips[name][0]-1)*100)+'% 0';}
+    requestAnimationFrame(draw);
+  }
+  requestAnimationFrame(draw);
 }
 function setCapriState(next) {
   const stage = q('capri-stage');
