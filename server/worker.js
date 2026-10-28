@@ -1,4 +1,5 @@
 // Project Capricorn / Gemini bridge v0.2
+// GitHub-connected Cloudflare builds: deploy from repository root directory server/.
 // Deploy the server/ folder through Cloudflare Workers Builds. GitHub Pages only serves the root website.
 // Set GEMINI_API_KEY and CAPRI_ACCESS_TOKEN as Cloudflare *secrets*.
 // Optionally set GEMINI_MODEL as a plaintext variable.
